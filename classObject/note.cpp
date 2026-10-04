@@ -89,6 +89,191 @@ using namespace std;
 
 
 
+//############### --------> Access modifier 
+
+// public - private - projected 
+
+/*
+class {
+    public bank :
+       string bank_account;
+       int balance ;
+
+    int main () {
+        bank b1;
+        b1.balance
+    }
+}
+*/
+
+
+
+// private 
+// class BankAccount
+// {
+// private:
+//     double balance;
+
+// public:
+
+//     void deposit(double amount)
+//     {
+//         balance = balance + amount;
+//     }
+
+//     double getBalance()
+//     {
+//         return balance;
+//     }
+
+//     void deposit(double amount)
+// {
+//     if (amount > 0)
+//     {
+//         balance += amount;
+//     }
+// }
+// };
+
+
+
+// ##### ------> Better constructor 
+
+// --->
+// Product(string name, double price)
+// {
+//     object's name = parameter's name
+//     this->name = name;
+//     this->price = price;
+// }
+
+//--> best 
+
+// class Product {
+//     private:
+//         string name ;
+//         int price ;
+    
+//     public:
+//         Product(string name, int price ): name(name), price(price){
+
+//         }
+// };
+
+
+// Example  -------->
+// class BankAccount
+// {
+// private:
+//     string owner;
+//     double balance;
+
+// public:
+
+//     BankAccount(string owner, double balance)
+//         : owner(owner),
+//           balance(balance)
+//     {
+//     }
+
+//     void deposit(double amount)
+//     {
+//         if (amount > 0)
+//         {
+//             this->balance += amount;
+//         }
+//     }
+
+//     void show()
+//     {
+//         cout << "Owner: " << this->owner << endl;
+//         cout << "Balance: " << this->balance << endl;
+//     }
+// };
+
+// int main()
+// {
+//     BankAccount account("Tirtho", 5000);
+
+//     account.deposit(2000);
+//     account.show();
+
+//     return 0;
+// }
+
+
+
+
+
+// ---------------------------------------------------------------------
+// Constructor + Destructor Together  
+
+// Destructor is clen up object clean up 
+
+// example
+
+// 1:Destructor is used to free memory."
+// 2:A destructor is for cleanup of resources owned by an object.
+// 3:its has not return type
+// class ServerConnection {
+//     public: 
+//         ServerConnection () {
+//             cout <<"connecting server " << endl;
+//         };
+
+//         // this is Destructor to clean it   // symbol use ~
+//         ~ServerConnection () {
+//             cout <<" Server disconnect ..... " << endl ;
+
+//         };
+
+//         void sendrequest() {
+//             cout << "sending request -------" << endl ;
+//         };
+// };
+
+// int main () {
+//     ServerConnection connect;
+//     connect.sendrequest();
+//     return 0;
+// }
+
+// Constructor
+//     ↓
+// Initialize
+
+// Object Lifetime
+//     ↓
+// Use
+
+// Destructor
+//     ↓
+// Cleanup
+
+// ┌───────────────────────┐
+// │ Object created        │
+// │       ↓               │
+// │ Constructor           │
+// │       ↓               │
+// │ Object is alive       │
+// │       ↓               │
+// │ Object used           │
+// │       ↓               │
+// │ Lifetime ends         │
+// │       ↓               │
+// │ Destructor            │
+// │       ↓               │
+// │ Cleanup               │
+// └───────────────────────┘
+
+
+
+
+
+
+
+
+
     
 
 
