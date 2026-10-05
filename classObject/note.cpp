@@ -1,20 +1,13 @@
 #include <iostream>
 using namespace std;
 
-
-
-
-
 //  ------>
 // note
 // Inside a class we can have two major things.
-//1:Data member
-//2: Data fuction
+// 1:Data member
+// 2: Data fuction
 
-
-
-
-// define class  for student 
+// define class  for student
 // class student {
 //     public:   // this is public access modifier   // call it data member
 //         string name;
@@ -30,18 +23,14 @@ using namespace std;
 // };
 // ------------------> main function
 // int main  () {
-     
-//         student s1;  // here [student] is  object and s1 is name 
+
+//         student s1;  // here [student] is  object and s1 is name
 //         s1.name = " Tarx"; // class data access use .
 //         s1.roll = 10;
 //         s1.age = 20;
 
-//         s1.data(); // cal the method 
+//         s1.data(); // cal the method
 // };
-
-
-
-
 
 // ================> extra example with CAR
 
@@ -86,12 +75,9 @@ using namespace std;
 //     return 0;
 // }
 
+// ############### --------> Access modifier
 
-
-
-//############### --------> Access modifier 
-
-// public - private - projected 
+// public - private - projected
 
 /*
 class {
@@ -106,9 +92,7 @@ class {
 }
 */
 
-
-
-// private 
+// private
 // class BankAccount
 // {
 // private:
@@ -135,9 +119,7 @@ class {
 // }
 // };
 
-
-
-// ##### ------> Better constructor 
+// ##### ------> Better constructor
 
 // --->
 // Product(string name, double price)
@@ -147,19 +129,18 @@ class {
 //     this->price = price;
 // }
 
-//--> best 
+//--> best
 
 // class Product {
 //     private:
 //         string name ;
 //         int price ;
-    
+
 //     public:
 //         Product(string name, int price ): name(name), price(price){
 
 //         }
 // };
-
 
 // Example  -------->
 // class BankAccount
@@ -201,14 +182,10 @@ class {
 //     return 0;
 // }
 
-
-
-
-
 // ---------------------------------------------------------------------
-// Constructor + Destructor Together  
+// Constructor + Destructor Together
 
-// Destructor is clen up object clean up 
+// Destructor is clen up object clean up
 
 // example
 
@@ -216,7 +193,7 @@ class {
 // 2:A destructor is for cleanup of resources owned by an object.
 // 3:its has not return type
 // class ServerConnection {
-//     public: 
+//     public:
 //         ServerConnection () {
 //             cout <<"connecting server " << endl;
 //         };
@@ -266,19 +243,73 @@ class {
 // │ Cleanup               │
 // └───────────────────────┘
 
-
 //------------------==--------------------------==------------------------==------------------------==>
 
+// Encapsulation Deep Dive + Getters/Setters + Invariants
 
+// ==> Encapsulation means:
 
+// Keeping an object's data and the operations that control that data together, while preventing uncontrolled access from outside.
 
+class BankAccount
+{
+private:
+    string owner;
+    double balance;
 
+public:
+    BankAccount(string owner, double initialBalance)
+        : owner(owner), balance(0)
+    {
 
+        if (initialBalance >= 0)
+        {
+            balance = initialBalance;
+        }
+    }
 
+    void deposit(double amount)
+    {
+        if (amount <= 0)
+        {
+            return;
+        }
 
+        balance += amount;
+    }
 
+    bool withdraw(double amount)
+    {
+        if (amount <= 0 || amount > balance)
+        {
+            return false;
+        }
 
+        balance -= amount;
+        return true;
+    }
 
-    
+    double getBalance() const
+    {
+        return balance;
+    }
 
+    string getOwner() const
+    {
+        return owner;
+    }
+};
 
+int main()
+{
+
+    BankAccount account("Tirtho", 1000);
+
+    account.deposit(500);
+
+    account.withdraw(300);
+
+    cout << account.getBalance() << endl;
+
+    return 0;
+}
